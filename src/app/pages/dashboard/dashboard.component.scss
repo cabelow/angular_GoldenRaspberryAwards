@@ -1,0 +1,53 @@
+.table-wrapper {
+  border: 1px solid #ccc;
+  padding: 16px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-content {
+  text-align: center;
+  width: 100%;
+}
+
+
+.table-content {
+  overflow-x: auto;
+}
+
+mat-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+mat-header-cell,
+mat-cell {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+mat-header-row {
+  background-color: #cacaca;
+}
+
+mat-row:nth-child(even) {
+  background-color: #ebebeb;
+}
+
+mat-row:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+.year-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+h3{
+  font-size: 1.2rem;
+  font-weight: bold;
+}

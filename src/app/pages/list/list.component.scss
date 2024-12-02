@@ -1,0 +1,101 @@
+.inline-grid {
+    display: inline-grid;
+}
+
+.width100 {
+    width: 100%;
+    height: 30px;
+}
+
+.table-content {
+    overflow-x: auto;
+}
+
+mat-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+mat-header-cell,
+mat-cell {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+mat-header-row {
+    background-color: #cacaca;
+}
+
+mat-row:nth-child(even) {
+    background-color: #ebebeb;
+}
+
+mat-row:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+.year-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 40px;
+}
+
+.button-page-number {
+    border: none;
+    background: none;
+    float: left;
+    width: 25px;
+    font-size: 20px;
+}
+
+.page-number-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.button-page-number {
+    border: none;
+    background: none;
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.button-page-number:hover {
+    background-color: #f0f0f0;
+}
+
+.button-page-number:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+    .button-page-number {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-number-controls {
+        justify-content: space-between;
+    }
+}

@@ -1,0 +1,62 @@
+<mat-table [dataSource]="movies" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+        <mat-cell *matCellDef="let movie"> {{movie.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="year">
+        <mat-header-cell class="inline-grid" *matHeaderCellDef>
+            Year
+            <input class="width100" type="text" [(ngModel)]="yearFilter" (input)="applyFilters()"
+                placeholder="Filter by year" />
+        </mat-header-cell>
+        <mat-cell *matCellDef="let movie"> {{movie.year}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+        <mat-cell *matCellDef="let movie"> {{movie.title}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="winner">
+        <mat-header-cell class="inline-grid" *matHeaderCellDef>
+            Winner?
+            <select class="width100" [(ngModel)]="winnerFilter" (change)="applyFilters()">
+                <option value="default">All</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let movie"> {{ movie.winner ? 'Yes' : 'No' }} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="['id', 'year', 'title', 'winner']"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: ['id', 'year', 'title', 'winner'];"></mat-row>
+</mat-table>
+
+<mat-paginator [length]="totalElements" [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]"
+    (page)="onPageChange($event)">
+</mat-paginator>
+
+<div class="page-number-controls">
+    <button class="button-page-number" (click)="goToFirstPage()" [disabled]="currentPage === 0">
+        <mat-icon>skip_previous</mat-icon>
+    </button>
+
+    <button class="button-page-number" (click)="goToPreviousPage()" [disabled]="currentPage === 0">
+        <mat-icon>navigate_before</mat-icon>
+    </button>
+
+    <button class="button-page-number" *ngFor="let page of pageNumbers" (click)="goToPage(page)"
+        [disabled]="page === (currentPage + 1)">
+        {{ page }}
+    </button>
+
+    <button class="button-page-number" (click)="goToNextPage()" [disabled]="currentPage >= totalPages - 1">
+        <mat-icon>navigate_next</mat-icon>
+    </button>
+
+    <button class="button-page-number" (click)="goToLastPage()" [disabled]="currentPage >= totalPages - 1">
+        <mat-icon>skip_next</mat-icon>
+    </button>
+</div>
