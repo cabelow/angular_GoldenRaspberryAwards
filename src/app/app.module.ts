@@ -19,7 +19,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatIconModule } from '@angular/material/icon';
 
 import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ListComponent } from './pages/list/list.component';
 
@@ -27,9 +26,8 @@ import { ListComponent } from './pages/list/list.component';
   declarations: [
     AppComponent,
     SidebarComponent,
-    LoginComponent,
     DashboardComponent,
-    ListComponent
+    ListComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,9 +44,9 @@ import { ListComponent } from './pages/list/list.component';
     MatSnackBarModule,
     MatTableModule,
     MatPaginatorModule,
-    MatIconModule
+    MatIconModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

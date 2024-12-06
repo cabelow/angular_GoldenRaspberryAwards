@@ -10,7 +10,6 @@
   width: 100%;
 }
 
-
 .table-content {
   overflow-x: auto;
 }
@@ -47,7 +46,40 @@ mat-row:nth-child(odd) {
   border-radius: 4px;
 }
 
-h3{
+h3 {
   font-size: 1.2rem;
   font-weight: bold;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.year-input {
+  width: 100%;
+  margin-top: 16px;
+  height: 35px;
+}
+
+.search-btn-icon {
+  padding: 8px 5px;
+}
+
+.search-btn {
+  color: white;
+  background-color: #005ddb;
+  border-radius: 10px;
+  width: 35px;
+  height: 35px;
+}
+
+.search-btn mat-icon {
+  font-size: 20px;
+}
+
+.no-movies-message {
+  text-align: center;
+  color: #999;
 }

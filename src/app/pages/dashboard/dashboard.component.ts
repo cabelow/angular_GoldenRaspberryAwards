@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { MovieService } from 'src/app/services/movie.service';
 
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent {
   yearsWithMultipleWinners = [];
@@ -14,12 +13,15 @@ export class DashboardComponent {
   showAllStudios = false;
   producersWithWinnerIntervals = {
     min: [],
-    max: []
+    max: [],
   };
-  moviesWithWinners = [];
+  moviesWithWinners = [] as any;
   searchYear: string = '';
+  number_year: number = 0;
+  isLoading: boolean = false;
+  hasSearched: boolean = false;
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService) {}
 
   ngOnInit(): void {
     this.loadYearsWithMultipleWinners();
@@ -41,7 +43,7 @@ export class DashboardComponent {
   loadStudiosWithWinners(): void {
     this.movieService.get_studios_with_winners().subscribe(
       (data) => {
-        this.studiosWithWinners = data.studios.studios;
+        this.studiosWithWinners = data.studios;
         this.updateDisplayedStudios();
       },
       (error) => {
@@ -74,17 +76,29 @@ export class DashboardComponent {
     );
   }
 
-  loadMoviesWithWinners(): void {
-    if (this.searchYear) {
-      this.movieService.get_movies_with_winners(this.searchYear).subscribe(
-        (data) => {
-          this.moviesWithWinners = data.movies;
-        },
-        (error) => {
-          console.error('Error loading winning films', error);
-        }
-      );
+  increaseYear(): void {
+    this.number_year = parseInt(this.searchYear, 10);
+    this.searchYear += 1;
+  }
+
+  decreaseYear(): void {
+    this.number_year = parseInt(this.searchYear, 10);
+    if (this.number_year > 1980) {
+      this.number_year -= 1;
     }
   }
 
+  searchMoviesByYear(): void {
+    this.isLoading = true;
+    this.hasSearched = true;
+    this.number_year = parseInt(this.searchYear, 10);
+    if (this.number_year) {
+      this.movieService
+        .get_movies_with_winners(this.number_year)
+        .subscribe((data: any[]) => {
+          this.moviesWithWinners = data;
+          this.isLoading = false;
+        });
+    }
+  }
 }

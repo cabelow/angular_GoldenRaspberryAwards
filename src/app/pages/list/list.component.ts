@@ -5,11 +5,17 @@ import { MovieService } from 'src/app/services/movie.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
   movies: any[] = [];
-  displayedColumns: string[] = ['title', 'year', 'producer', 'studio', 'winner'];
+  displayedColumns: string[] = [
+    'title',
+    'year',
+    'producer',
+    'studio',
+    'winner',
+  ];
   pageSize: number = 10;
   currentPage: number = 0;
   totalElements: number = 0;
@@ -18,7 +24,7 @@ export class ListComponent implements OnInit {
   yearFilter: string = '';
   pageNumbers: number[] = [];
 
-  constructor(private movieService: MovieService) { }
+  constructor(private movieService: MovieService) {}
 
   ngOnInit(): void {
     this.getMovies();
@@ -36,18 +42,25 @@ export class ListComponent implements OnInit {
   }
 
   getMovies(): void {
-    this.movieService.getMovies(this.winnerFilter, this.yearFilter, this.currentPage, this.pageSize).subscribe({
-      next: (data) => {
-        console.log('Movies data:', data);
-        this.movies = data.content;
-        this.totalElements = data.totalElements;
-        this.totalPages = data.totalPages;
-        this.updatePageNumbers();
-      },
-      error: (error) => {
-        console.error('Failed to fetch movies:', error);
-      }
-    });
+    this.movieService
+      .getMovies(
+        this.winnerFilter,
+        this.yearFilter,
+        this.currentPage,
+        this.pageSize
+      )
+      .subscribe({
+        next: (data) => {
+          console.log('Movies data:', data);
+          this.movies = data.content;
+          this.totalElements = data.totalElements;
+          this.totalPages = data.totalPages;
+          this.updatePageNumbers();
+        },
+        error: (error) => {
+          console.error('Failed to fetch movies:', error);
+        },
+      });
   }
 
   applyFilters(): void {
@@ -84,5 +97,4 @@ export class ListComponent implements OnInit {
       this.getMovies();
     }
   }
-
 }

@@ -2,7 +2,10 @@
   <div class="table-wrapper" fxFlex="48%" fxFlex.xs="100%">
     <h3>List years with multiple winners</h3>
     <div class="table-content">
-      <mat-table [dataSource]="yearsWithMultipleWinners" class="mat-elevation-z8">
+      <mat-table
+        [dataSource]="yearsWithMultipleWinners"
+        class="mat-elevation-z8"
+      >
         <ng-container matColumnDef="year">
           <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
           <mat-cell *matCellDef="let yearData"> {{ yearData.year }} </mat-cell>
@@ -10,11 +13,17 @@
 
         <ng-container matColumnDef="winnerCount">
           <mat-header-cell *matHeaderCellDef> Win Count </mat-header-cell>
-          <mat-cell *matCellDef="let yearData"> {{ yearData.winnerCount }} </mat-cell>
+          <mat-cell *matCellDef="let yearData">
+            {{ yearData.winnerCount }}
+          </mat-cell>
         </ng-container>
 
-        <mat-header-row *matHeaderRowDef="['year', 'winnerCount']"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: ['year', 'winnerCount'];"></mat-row>
+        <mat-header-row
+          *matHeaderRowDef="['year', 'winnerCount']"
+        ></mat-header-row>
+        <mat-row
+          *matRowDef="let row; columns: ['year', 'winnerCount']"
+        ></mat-row>
       </mat-table>
     </div>
   </div>
@@ -25,16 +34,24 @@
       <mat-table [dataSource]="displayedStudios" class="mat-elevation-z8">
         <ng-container matColumnDef="studioName">
           <mat-header-cell *matHeaderCellDef> Studio </mat-header-cell>
-          <mat-cell *matCellDef="let studioData"> {{ studioData.name }} </mat-cell>
+          <mat-cell *matCellDef="let studioData">
+            {{ studioData.name }}
+          </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="winCount">
           <mat-header-cell *matHeaderCellDef> Win Count </mat-header-cell>
-          <mat-cell *matCellDef="let studioData"> {{ studioData.winCount }} </mat-cell>
+          <mat-cell *matCellDef="let studioData">
+            {{ studioData.winCount }}
+          </mat-cell>
         </ng-container>
 
-        <mat-header-row *matHeaderRowDef="['studioName', 'winCount']"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: ['studioName', 'winCount'];"></mat-row>
+        <mat-header-row
+          *matHeaderRowDef="['studioName', 'winCount']"
+        ></mat-header-row>
+        <mat-row
+          *matRowDef="let row; columns: ['studioName', 'winCount']"
+        ></mat-row>
       </mat-table>
       <button mat-button (click)="toggleShowAll()">
         {{ showAllStudios ? 'Show less' : 'Show all' }}
@@ -49,92 +66,162 @@
 
     <h4>Maximum</h4>
     <div class="table-content">
-      <mat-table [dataSource]="producersWithWinnerIntervals.max" class="mat-elevation-z8">
+      <mat-table
+        [dataSource]="producersWithWinnerIntervals.max"
+        class="mat-elevation-z8"
+      >
         <ng-container matColumnDef="producer">
           <mat-header-cell *matHeaderCellDef> Producer </mat-header-cell>
-          <mat-cell *matCellDef="let producer"> {{producer.producer}} </mat-cell>
+          <mat-cell *matCellDef="let producer">
+            {{ producer.producer }}
+          </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="previousWin">
           <mat-header-cell *matHeaderCellDef> Previous Win </mat-header-cell>
-          <mat-cell *matCellDef="let producer"> {{producer.previousWin}} </mat-cell>
+          <mat-cell *matCellDef="let producer">
+            {{ producer.previousWin }}
+          </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="followingWin">
           <mat-header-cell *matHeaderCellDef> Following Win </mat-header-cell>
-          <mat-cell *matCellDef="let producer"> {{producer.followingWin}} </mat-cell>
+          <mat-cell *matCellDef="let producer">
+            {{ producer.followingWin }}
+          </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="interval">
           <mat-header-cell *matHeaderCellDef> Interval </mat-header-cell>
-          <mat-cell *matCellDef="let producer"> {{producer.interval}} </mat-cell>
+          <mat-cell *matCellDef="let producer">
+            {{ producer.interval }}
+          </mat-cell>
         </ng-container>
 
-        <mat-header-row *matHeaderRowDef="['producer', 'previousWin', 'followingWin', 'interval']"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: ['producer', 'previousWin', 'followingWin', 'interval'];"></mat-row>
+        <mat-header-row
+          *matHeaderRowDef="[
+            'producer',
+            'previousWin',
+            'followingWin',
+            'interval',
+          ]"
+        ></mat-header-row>
+        <mat-row
+          *matRowDef="
+            let row;
+            columns: ['producer', 'previousWin', 'followingWin', 'interval']
+          "
+        ></mat-row>
       </mat-table>
     </div>
 
     <h4>Minumum</h4>
     <div class="table-content">
-      <mat-table [dataSource]="producersWithWinnerIntervals.min" class="mat-elevation-z8">
+      <mat-table
+        [dataSource]="producersWithWinnerIntervals.min"
+        class="mat-elevation-z8"
+      >
         <ng-container matColumnDef="producer">
           <mat-header-cell *matHeaderCellDef> Producer </mat-header-cell>
-          <mat-cell *matCellDef="let producer"> {{producer.producer}} </mat-cell>
+          <mat-cell *matCellDef="let producer">
+            {{ producer.producer }}
+          </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="previousWin">
           <mat-header-cell *matHeaderCellDef> Previous Win </mat-header-cell>
-          <mat-cell *matCellDef="let producer"> {{producer.previousWin}} </mat-cell>
+          <mat-cell *matCellDef="let producer">
+            {{ producer.previousWin }}
+          </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="followingWin">
           <mat-header-cell *matHeaderCellDef> Following Win </mat-header-cell>
-          <mat-cell *matCellDef="let producer"> {{producer.followingWin}} </mat-cell>
+          <mat-cell *matCellDef="let producer">
+            {{ producer.followingWin }}
+          </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="interval">
           <mat-header-cell *matHeaderCellDef> Interval </mat-header-cell>
-          <mat-cell *matCellDef="let producer"> {{producer.interval}} </mat-cell>
+          <mat-cell *matCellDef="let producer">
+            {{ producer.interval }}
+          </mat-cell>
         </ng-container>
 
-        <mat-header-row *matHeaderRowDef="['producer', 'previousWin', 'followingWin', 'interval']"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: ['producer', 'previousWin', 'followingWin', 'interval'];"></mat-row>
+        <mat-header-row
+          *matHeaderRowDef="[
+            'producer',
+            'previousWin',
+            'followingWin',
+            'interval',
+          ]"
+        ></mat-header-row>
+        <mat-row
+          *matRowDef="
+            let row;
+            columns: ['producer', 'previousWin', 'followingWin', 'interval']
+          "
+        ></mat-row>
       </mat-table>
     </div>
-
   </div>
 
   <div class="table-wrapper" fxFlex="48%" fxFlex.xs="100%">
     <h3>List movie winners by year</h3>
     <div class="table-content">
-      <input type="text" placeholder="Search by year" [(ngModel)]="searchYear" (input)="loadMoviesWithWinners()"
-        class="year-input" />
-      <mat-table [dataSource]="moviesWithWinners" class="mat-elevation-z8">
-        <ng-container matColumnDef="title">
-          <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
-          <mat-cell *matCellDef="let movie"> {{movie.title}} </mat-cell>
+      <div class="search-container">
+        <input
+          type="number"
+          [(ngModel)]="searchYear"
+          class="year-input"
+          min="1980"
+          max="2030"
+          placeholder="Search by year"
+        />
+        <div class="search-btn" (click)="searchMoviesByYear()">
+          <mat-icon class="search-btn-icon">search</mat-icon>
+        </div>
+      </div>
+
+      <div *ngIf="isLoading" class="spinner-container">
+        <mat-spinner diameter="30"></mat-spinner>
+      </div>
+
+      <mat-table
+        *ngIf="moviesWithWinners.length > 0"
+        [dataSource]="moviesWithWinners"
+        class="mat-elevation-z8"
+      >
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef> ID </mat-header-cell>
+          <mat-cell *matCellDef="let movie"> {{ movie.id }} </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="year">
           <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
-          <mat-cell *matCellDef="let movie"> {{movie.year}} </mat-cell>
+          <mat-cell *matCellDef="let movie"> {{ movie.year }} </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="producer_name">
-          <mat-header-cell *matHeaderCellDef> Producer </mat-header-cell>
-          <mat-cell *matCellDef="let movie"> {{movie.producer_name}} </mat-cell>
+        <ng-container matColumnDef="title">
+          <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
+          <mat-cell *matCellDef="let movie"> {{ movie.title }} </mat-cell>
         </ng-container>
 
-        <ng-container matColumnDef="studio_name">
-          <mat-header-cell *matHeaderCellDef> Studio </mat-header-cell>
-          <mat-cell *matCellDef="let movie"> {{movie.studio_name}} </mat-cell>
-        </ng-container>
-
-        <mat-header-row *matHeaderRowDef="['title', 'year', 'producer_name', 'studio_name']"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: ['title', 'year', 'producer_name', 'studio_name'];"></mat-row>
+        <mat-header-row
+          *matHeaderRowDef="['id', 'year', 'title']"
+        ></mat-header-row>
+        <mat-row
+          *matRowDef="let row; columns: ['id', 'year', 'title']"
+        ></mat-row>
       </mat-table>
-    </div>
 
+      <div
+        *ngIf="!isLoading && hasSearched && moviesWithWinners.length === 0"
+        class="no-movies-message"
+      >
+        <p>No movie winners found for the entered year.</p>
+      </div>
+    </div>
   </div>
 </div>

@@ -100,6 +100,14 @@ Para iniciar o servidor de desenvolvimento e visualizar o projeto:
 
 ---
 
-Para autenticação:
-- **Usuário**: Raspberry
-- **Senha**: Wyyk@PGiQCewCT9
+## 6. Formatar Indentação do código
+
+Antes de rodar o projeto Angular, você deve instalar as dependências necessárias:
+
+1. No diretório do projeto, execute:
+
+   ```bash
+   npm run format
+   ```
+
+---
